@@ -253,14 +253,14 @@
       background-color: #7e456d;
       padding: 30px;
     }
-    .carrito-total .fila{
+    .container .fila{
       justify-content: space-between;
       align-items: center;
       font-size: 22px;
       font-weight: bold;
       margin-bottom: 10px;
     }
-    .carrito-total .btn-pagar{
+    .container.btn-pagar{
       display: block;
       width: 100px;
       background: #ed92cf;
@@ -276,7 +276,7 @@
     }
   
   
-    .carrito-total .btn-pagar:hover{
+    .container .btn-pagar:hover{
       scale: 1.02;
     }
     

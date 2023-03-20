@@ -9,6 +9,7 @@ class Productos {
   }
 }
 
+
 let lista_productos = [];
 
 lista_productos.push(
@@ -159,9 +160,10 @@ function renderizarProductos() {
   </div>
     `;
   });
+
 }
 
-renderizarProductos();
+  renderizarProductos();
 
 
 
@@ -201,7 +203,7 @@ function agregar_a_carrito(e) {
   };
 
 
-  aumentar_producto__carrito(producto_carrito);
+  aumentar_producto(producto_carrito);
 }
 
 // TOTAL CARRITO
@@ -226,7 +228,7 @@ const carrito_total = () => {
 function Toa_agregar_prod (){
 
 Toastify({
-  text: "Producto agregado",
+  text: "Agregado",
   className: "alerta_agregado",
   style: {
     background: "linear-gradient(to right, #A94BDF, #FB06DF)",
@@ -237,7 +239,7 @@ Toastify({
 function Toa_eliminar_prod (){
 
   Toastify({
-    text: "Producto eliminado",
+    text: "Eliminado",
     className: "alerta_eliminado",
     style: {
       background: "linear-gradient(to right, #E63147, #E73348)",
@@ -245,9 +247,9 @@ function Toa_eliminar_prod (){
   }).showToast();
   };
 
-// AGREGAR A CARRITO O AUMENTAR VALOR INPUT DESDE AGREGAR A CARRITO
+// AGREGAR A CARRITO 
 
-function aumentar_producto__carrito(producto_carrito) {
+function aumentar_producto(producto_carrito) {
   const inputProductoUnidades = document.getElementsByClassName("input_unidades");
   for (let i = 0; i < carrito.length; i++) {
     if (carrito[i].idProducto === producto_carrito.idProducto) {
@@ -262,13 +264,13 @@ function aumentar_producto__carrito(producto_carrito) {
   render_carrito();
 }
 
-render_carrito();
+
 
 // RENDER CARRITO
 
 function render_carrito() {
   let tabla = document.getElementById("carrito-items");
-  tabla.innerHTML = "";
+  tabla.innerHTML = ``;
 
   for (let producto of carrito) {
     let fila = document.createElement("tr");
@@ -365,7 +367,7 @@ btn_pagar.addEventListener('click', () => {
 else {
 
   Swal.fire({
-    text: 'No hay nada para pagar 😒',
+    text: 'No hay productos seleccionados',
     Size: "300px",
     confirmButtonText: 'Continuar',
     showClass: {
@@ -378,3 +380,24 @@ else {
 
 }
 });
+
+const result = document.querySelector('.result');
+const form = document.querySelector('.get-wather');
+const nameCity = document.querySelector('.#city');
+const nameCountry = document.querySelector('.#country');
+
+form.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  if(nameCity.value === '' || nameCountry.value === ''){
+    showError ('Ambos campos on obligatorios');
+return;
+  }
+  callAPI(nameCity.value, nameCountry.value);
+})
+function callAPI(city, country){
+  const apiId = "92486cc876e2409257aa951843e0bda7"
+}
+function showError (message) {
+  console.log(message);
+  const a
+}
