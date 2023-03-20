@@ -324,5 +324,31 @@
     }
   
 
-   
+   .whater-content {
+    box-shadow: #666;
+    max-width: 400px;
+    text-align: center;
+    padding: 20px 20px 50px;
+    margin: 10% auto 0;
+    background-color: #7e456d;
+    border-radius: 9px;
+   }
     
+   .whater-content h3{
+    font-size: 34px;
+    margin-bottom: 10px;
+    color: #ed92cf;
+   }
+   .whater-content p{
+    color: #fff;
+   }
+   .result{
+    margin-bottom: 8%;
+   }
+   .result p{
+    margin: 5px 0 5px;
+
+   }
+   .result h3 {
+    font-size: 70px;
+   }

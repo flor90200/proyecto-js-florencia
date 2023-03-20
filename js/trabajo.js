@@ -381,57 +381,20 @@ else {
 }
 });
 
-const result = document.querySelector('.result');
-const form = document.querySelector('.get-wather');
-const nameCity = document.querySelector('.#city');
-const nameCountry = document.querySelector('.#country');
+function clima (posicion){
+  let lat = posicion.coords.latitude;
+  let long = posicion.coords.longitude;
+  let key = "92486cc876e2409257aa951843e0bda7"
 
-form.addEventListener('submit', (e)=>{
-  e.preventDefault();
-  if(nameCity.value === '' || nameCountry.value === ''){
-    showError ('Ambos campos on obligatorios');
-return;
-  }
-  callAPI(nameCity.value, nameCountry.value);
-})
-function callAPI(city, country){
-  const apiId = "92486cc876e2409257aa951843e0bda7";
-  const url= "https://api.openweathermap.org/data/2.5/weather?lat=${city}, $(country)&appid=&appid=$(apiId){API key}";
-
-  fetch(url).then(data =>{
-    return data.json();
-
-  });
-  then(dataJSON =>{
-    if (dataJSON.cod === '404'){
-      showError('Ciudad no encontrada');
-    } else {
-      showWather (dataJSON);
-    }
-    console.log(dataJSON);
+  fetch (`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${key}&units=metric&lang=es`)
+  .then(response=>response.json())
+  .then(data=>{
+    document.body.innerHTML = `
+    
+                            <p>${data.name}</p>
+                            <p>Temp:${data.main.temp}</p>
+                            <p>Clima:${data.weather[0].description}</p>
+    `
   })
 }
-function showWather (data){
-  const {name, main: {temp, temp_min, temp_max,}, weather:[arr]}=data;
-const degrees = centigrade(temp);
-const min =centigrade (temp_min);
-const max= centigrade (temp_max);
-  content.innerHTML = `
-<h5>clima en ${name}</h5>
-
-<h3> ${temp}</h3>
-<p>Max ${temp_max}</p>
-<p>Min ${temp_min}</p>
-`;
-
-result.appendChild(content);
-
-}
-function showError (message) {
-  console.log(message);
- 
- 
-}
-function centigrade(temp){
-  return parseInt(temp - 273.15);
-}
+navigator.geolocation.getCurrentPosition(clima)
