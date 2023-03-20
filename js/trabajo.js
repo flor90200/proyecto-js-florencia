@@ -395,9 +395,43 @@ return;
   callAPI(nameCity.value, nameCountry.value);
 })
 function callAPI(city, country){
-  const apiId = "92486cc876e2409257aa951843e0bda7"
+  const apiId = "92486cc876e2409257aa951843e0bda7";
+  const url= "https://api.openweathermap.org/data/2.5/weather?lat=${city}, $(country)&appid=&appid=$(apiId){API key}";
+
+  fetch(url).then(data =>{
+    return data.json();
+
+  });
+  then(dataJSON =>{
+    if (dataJSON.cod === '404'){
+      showError('Ciudad no encontrada');
+    } else {
+      showWather (dataJSON);
+    }
+    console.log(dataJSON);
+  })
+}
+function showWather (data){
+  const {name, main: {temp, temp_min, temp_max,}, weather:[arr]}=data;
+const degrees = centigrade(temp);
+const min =centigrade (temp_min);
+const max= centigrade (temp_max);
+  content.innerHTML = `
+<h5>clima en ${name}</h5>
+
+<h3> ${temp}</h3>
+<p>Max ${temp_max}</p>
+<p>Min ${temp_min}</p>
+`;
+
+result.appendChild(content);
+
 }
 function showError (message) {
   console.log(message);
-  const a
+ 
+ 
+}
+function centigrade(temp){
+  return parseInt(temp - 273.15);
 }
