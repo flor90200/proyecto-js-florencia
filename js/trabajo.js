@@ -1,4 +1,47 @@
 
+function clima (posicion){
+  let lat = posicion.coords.latitude;
+  let long = posicion.coords.longitude;
+  let key = "92486cc876e2409257aa951843e0bda7"
+
+  fetch (`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${key}&units=metric&lang=es`)
+  .then(response=>response.json())
+  .then(data=>{
+    document.body.innerHTML = `
+    <body class="body">
+    <div class="logo" id="div_tiempo"> 
+                            <p>${data.name}</p>
+                            <p>Temp:${data.main.temp}</p>
+                            <p>Clima:${data.weather[0].description}</p>
+                            </div>
+                            </body>
+    `
+  })
+}
+
+async function clima (posicion){
+  let lat = posicion.coords.latitude;
+  let long = posicion.coords.longitude;
+  let key = "92486cc876e2409257aa951843e0bda7"
+
+  fetch (`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${key}&units=metric&lang=es`)
+  .then(response=>response.json())
+  .then(data=>{
+    let div_tiempo= document.getElementById("div_tiempo");
+    div_tiempo.document.body.innerHTML = `
+    <body class="body">
+    <div class="logo" id="div_tiempo"> 
+                            <p>${data.name}</p>
+                            <p>Temperatura:${data.main.temp} °C</p>
+                            <p>Clima:${data.weather[0].description}</p>
+                            </div>
+                            </body>
+                            
+    `
+  })
+}
+
+navigator.geolocation.getCurrentPosition(clima);
 class Productos {
   constructor(id, nombre_pestañas, nombre_volumen, imgSrc, precio, stock) {
     this.id = id;
@@ -266,7 +309,7 @@ function aumentar_producto(producto_carrito) {
 
 
 
-// RENDER CARRITO
+// RENDER 
 
 function render_carrito() {
   let tabla = document.getElementById("carrito-items");
@@ -287,7 +330,7 @@ function render_carrito() {
     carrito_total();
   }
 
-  // AUMENTAR CLICKEANDO BOTON INPUT
+
 
   const btn_input = document.querySelectorAll(".input_unidades");
 
@@ -381,20 +424,7 @@ else {
 }
 });
 
-function clima (posicion){
-  let lat = posicion.coords.latitude;
-  let long = posicion.coords.longitude;
-  let key = "92486cc876e2409257aa951843e0bda7"
 
-  fetch (`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${key}&units=metric&lang=es`)
-  .then(response=>response.json())
-  .then(data=>{
-    document.body.innerHTML = `
-    
-                            <p>${data.name}</p>
-                            <p>Temp:${data.main.temp}</p>
-                            <p>Clima:${data.weather[0].description}</p>
-    `
-  })
-}
-navigator.geolocation.getCurrentPosition(clima)
+
+
+
