@@ -64,9 +64,34 @@
   }
   
   h3 {
-    text-align: center;
-    padding: 50px;
-    color: #a26e96;
+   position: relative;
+   font-size: 30px;
+   letter-spacing: 7px;
+   color:  #a26e96;
+   text-transform: uppercase;
+   width: 100%;
+   text-align: center;
+   -webkit-box-reflect: below 1px linear-gradient(transparent,  #ffa7ea);
+   line-height: 0.70em;
+   outline: none;
+   animation: animate 5s linear infinite;
+  }
+
+  @keyframes animate {
+    0%, 18%, 20%,50.1%, 60%,65.1%, 80%, 90.1%,92%{
+      color: #7e456d;
+      box-shadow: none;
+    }
+    18.1%, 20.1%, 30%,  50%, 60.1%, 65%, 80.1%,90%,92.1%,100%{
+      color: #fff;
+      text-shadow: 0 0 10px #666,
+      0 0 20px #666, 
+      0 0 40px #666, 
+      0 0 80px #666, 
+      0 0 160px #666 ;
+
+    }
+    
   }
   
   h4.card_title_pestañas {
@@ -324,31 +349,4 @@
     }
   
 
-   .whater-content {
-    box-shadow: #666;
-    max-width: 400px;
-    text-align: center;
-    padding: 20px 20px 50px;
-    margin: 10% auto 0;
-    background-color: #7e456d;
-    border-radius: 9px;
-   }
-    
-   .whater-content h3{
-    font-size: 34px;
-    margin-bottom: 10px;
-    color: #ed92cf;
-   }
-   .whater-content p{
-    color: #fff;
-   }
-   .result{
-    margin-bottom: 8%;
-   }
-   .result p{
-    margin: 5px 0 5px;
-
-   }
-   .result h3 {
-    font-size: 70px;
-   }
+  

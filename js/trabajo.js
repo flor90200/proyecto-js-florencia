@@ -43,7 +43,7 @@ async function clima (posicion){
 
 navigator.geolocation.getCurrentPosition(clima);
 class Productos {
-  constructor(id, nombre_pestañas, nombre_volumen, imgSrc, precio, stock) {
+  constructor(id, nombre_pestañas, nombre_volumen, imgSrc, precio, ) {
     this.id = id;
     this.nombre_pestañas = nombre_pestañas;
     this.nombre_volumen = nombre_volumen;
@@ -271,7 +271,7 @@ const carrito_total = () => {
 function Toa_agregar_prod (){
 
 Toastify({
-  text: "Agregado",
+  text: "Agregado ❤",
   className: "alerta_agregado",
   style: {
     background: "linear-gradient(to right, #A94BDF, #FB06DF)",
@@ -282,10 +282,10 @@ Toastify({
 function Toa_eliminar_prod (){
 
   Toastify({
-    text: "Eliminado",
+    text: "Eliminado ❌",
     className: "alerta_eliminado",
     style: {
-      background: "linear-gradient(to right, #E63147, #E73348)",
+      background: "linear-gradient(to right, #000000, #5C0F18)",
     }
   }).showToast();
   };
@@ -393,7 +393,7 @@ btn_pagar.addEventListener('click', () => {
   
     Swal.fire({
       imageUrl: "./img/logo.jpg",
-      title: "Gracias por su compra",
+      title: "Gracias por su compra 😍",
       background:"#A94BDF",
       imageWidth: "100px",
       confirmButtonText: 'Continuar',
@@ -410,7 +410,7 @@ btn_pagar.addEventListener('click', () => {
 else {
 
   Swal.fire({
-    text: 'No hay productos seleccionados',
+    text: 'No hay productos seleccionados ❌',
     Size: "300px",
     confirmButtonText: 'Continuar',
     showClass: {
