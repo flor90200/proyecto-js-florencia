@@ -122,7 +122,7 @@ lista_productos.push(
     "Lifting",
     "lifting",
     "+ henna",
-    "./img/logo.jpg",
+    "./img/lifting.jpg",
     2500
   )
 );
@@ -131,7 +131,7 @@ lista_productos.push(
     "Lifting",
     "lifting",
     "+ Henna + Botox",
-    "./img/logo.jpg",
+    "./img/lifting.jpg",
     2600
   )
 );
