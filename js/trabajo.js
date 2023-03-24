@@ -7,14 +7,15 @@ function clima (posicion){
   fetch (`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${key}&units=metric&lang=es`)
   .then(response=>response.json())
   .then(data=>{
-    document.body.innerHTML = `
-    <body class="body">
-    <div class="logo" id="div_tiempo"> 
+    document.header.innerHTML = `
+    <header class="banner">
+    <div class="logo" id="div_tiempo">
+    <img src="./img/logo.jpg" alt="flower style logo">
                             <p>${data.name}</p>
                             <p>Temp:${data.main.temp}</p>
                             <p>Clima:${data.weather[0].description}</p>
                             </div>
-                            </body>
+                            </header>
     `
   })
 }
@@ -28,14 +29,15 @@ async function clima (posicion){
   .then(response=>response.json())
   .then(data=>{
     let div_tiempo= document.getElementById("div_tiempo");
-    div_tiempo.document.body.innerHTML = `
-    <body class="body">
-    <div class="logo" id="div_tiempo"> 
+    div_tiempo.document.header.innerHTML = `
+    <header class="banner">
+    <div class="logo" id="div_tiempo">
+    <img src="./img/logo.jpg" alt="flower style logo">
                             <p>${data.name}</p>
                             <p>Temperatura:${data.main.temp} °C</p>
                             <p>Clima:${data.weather[0].description}</p>
                             </div>
-                            </body>
+                            </header>
                             
     `
   })
@@ -394,7 +396,7 @@ btn_pagar.addEventListener('click', () => {
     Swal.fire({
       imageUrl: "./img/logo.jpg",
       title: "Gracias por su compra 😍",
-      background:"#A94BDF",
+      background:"#E8A2E2",
       imageWidth: "100px",
       confirmButtonText: 'Continuar',
       showClass: {
@@ -410,14 +412,17 @@ btn_pagar.addEventListener('click', () => {
 else {
 
   Swal.fire({
+    imageUrl: "./img/logo.jpg",
     text: 'No hay productos seleccionados ❌',
     Size: "300px",
+    imageWidth: "100px",
+    background:"#E8A2E2",
     confirmButtonText: 'Continuar',
     showClass: {
-      popup: 'animate__animated animate__flipInY'
+      popup: 'animate__animated animate__fadeIn'
     },
     hideClass: {
-      popup: 'animate__animated animate__flipOutY'
+      popup: 'animate__animated animate__fadeInDown'
     }
   })
 
