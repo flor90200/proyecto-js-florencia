@@ -419,10 +419,10 @@ else {
     background:"#E8A2E2",
     confirmButtonText: 'Continuar',
     showClass: {
-      popup: 'animate__animated animate__fadeIn'
+      popup: 'animate__animated animate__flipInY'
     },
     hideClass: {
-      popup: 'animate__animated animate__fadeInDown'
+      popup: 'animate__animated animate__flipOutY'
     }
   })
 
