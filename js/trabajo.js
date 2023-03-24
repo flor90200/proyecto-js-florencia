@@ -399,6 +399,7 @@ btn_pagar.addEventListener('click', () => {
       background:"#E8A2E2",
       imageWidth: "100px",
       confirmButtonText: 'Continuar',
+     confirmButtonColor: 'rgb(229, 112, 221)',
       showClass: {
         popup: 'animate__animated animate__flipInY'
       },
@@ -418,6 +419,7 @@ else {
     imageWidth: "100px",
     background:"#E8A2E2",
     confirmButtonText: 'Continuar',
+    confirmButtonColor: 'rgb(229, 112, 221)',
     showClass: {
       popup: 'animate__animated animate__flipInY'
     },
